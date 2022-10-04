@@ -1,14 +1,17 @@
-use fltk::{app, prelude::*, *, frame::Frame};
+use fltk::{app, prelude::*, *, enums::{FrameType, Color}, frame::Frame};
 
 fn main() {
     let application = app::App::default();
-    let mut wind = window::Window::new(256, 128, 512, 256, "My first ftlk Window");
+    let mut wind = window::Window::new(256, 128, 512, 512, "My first ftlk Window");
 
     let mut frame = frame::Frame::new(10, 10, 492, 40, "Click on button below:");
+    frame.set_frame(FrameType::EngravedFrame);
     let mut butt = button::Button::new(10, 60, 200, 40, "Click me!");
 
-    let mut file_path_frame = frame::Frame::new(10, 150, 492, 40, "File path");
-    let mut file_select_button = button::Button::new(10, 200, 200, 40, "Chose a file");
+    let mut file_path_frame = frame::Frame::new(10, 110, 492, 40, "File path");
+    file_path_frame.set_frame(FrameType::ShadowBox);
+    file_path_frame.set_color( Color::White);
+    let mut file_select_button = button::Button::new(10, 160, 200, 40, "Chose a file");
 
     wind.end();
     wind.show();
